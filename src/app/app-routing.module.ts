@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MainComponent} from '../app/components/main/main.component';
-/* import {RepositoryComponent} from './components/repository/repository.component'; */
+
 import {RepositoryComponent} from '../app/components/repository/repository.component';
 
 
