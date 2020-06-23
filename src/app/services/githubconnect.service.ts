@@ -8,7 +8,12 @@ export class GithubconnectService {
 
   constructor(private http: HttpClient) { }
 
+  getUserInfo(){
+
+    
+  }
+
   getGitHubInfo(){
-    return this.http.get('https://api.github.com/users/gkarumbi?access_token=f58ee917fa6a74198de3eed284bfb62b89bb47cf');
+    return this.http.get('https://api.github.com/users/gkarumbi/repos?access_token=f58ee917fa6a74198de3eed284bfb62b89bb47cf');
   }
 }

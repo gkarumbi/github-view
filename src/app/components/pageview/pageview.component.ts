@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {GithubconnectService } from '../../services/githubconnect.service';
 import {User} from '../../user';
+import {environment} from '../../../environments/environment';
+
 import {Repository} from '../../repository';
 import { HttpClient } from '@angular/common/http';
+import { rejects } from 'assert';
 
 @Component({
   selector: 'app-pageview',
@@ -11,16 +14,39 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PageviewComponent implements OnInit {
 
-  gitUserDetails;
+  
 
   users:User;
   repos: Repository;
+  repolist;
   
 
   constructor(private gitConnect: GithubconnectService, private http: HttpClient) { }
 
   ngOnInit() {
-    // this.gitUserDetails = this.gitConnect.getGitHubInfo();
+    
+    /* let promise = new Promise((resolve,reject)=>{
+      this.http.get<ApiResponse>(environment.apiKey).toPromise().then(response=>{
+        this.users.id = response.id;
+        this.users.name = response.name;
+        this.users.avatar_url = response.avatar_url;
+        resolve()
+      }, error=>{
+        this.users.name = "User could not be found :-(";
+
+        reject(error)
+
+      }
+
+      )
+
+
+    })
+    
+    return promise;
+    */
+
+    
     interface ApiResponse{
       name:string;
       id:number;
@@ -31,15 +57,16 @@ export class PageviewComponent implements OnInit {
       // Succesful API request
       this.users = new User(data.name, data.id,data.avatar_url)
     })
-    interface RepositoryResponse{
-      name:string;
-      description:string;
-    }
-    this.http.get<RepositoryResponse>("https://api.github.com/users/gkarumbi/repos").subscribe(data=>{
-      // Succesful API request
-      this.repos = new Repository(0,data.name,"",data.description,"","","")
-    })
-  }
+   
 
+
+    this.repolist = this.gitConnect.getGitHubInfo();
+
+
+    
+
+    }
 }
+
+
 

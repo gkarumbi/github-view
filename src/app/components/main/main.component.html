@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="container">
+        
         <div class="row navbar-container">
             <div class="col-md-12">
                 <nav class="navbar navbar-dark bg-dark">
@@ -18,8 +19,34 @@
             </div>
 
         </div>
-        <div class="row main-conent"></div>
-        <div class="row footer"></div>
+        <div class="row main-conent ">
+            <div class="col-md-3 username-input ">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <app-pageview ></app-pageview>
+            </div>
+
+            <div class="col-md-9"></div>
+        </div>
+        <!-- <div class=" bg-dark row footer">
+            
+            <footer class="page-footer font-small blue">
+
+                
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://github.com/">Github</a>
+                </div>
+            
+            
+            </footer>
+ 
+        </div> -->
 
 
     </div>
